@@ -1,0 +1,35 @@
+<template>
+    <lightning-card>
+        <div class="slds-m-around_small">
+            <div if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+            </div>
+
+            <div class="slds-m-vertical_x-small">
+                <lightning-combobox label="Source" value={source} options={options}
+                    onchange={onSourceChangeHandler}></lightning-combobox>
+            </div>
+
+            <div class="slds-m-vertical_x-small">
+                <lightning-input type="number" label="Enter Amount to convert" placeholder="0.000" value={amount} formatter="currency" onchange={onAmountChangeHandler}></lightning-input>
+            </div>
+
+            <div class="slds-m-vertical_x-small">
+                <lightning-combobox label="Target" value={target} options={options}
+                    onchange={onTargetChangeHandler}></lightning-combobox>
+            </div>
+
+            <div class="slds-m-vertical_x-small">
+                <lightning-button class="slds-align_absolute-center" label="Convert Amount" title="Convert Amount"
+                    variant="brand" onclick={onConvertAmountHandler}></lightning-button>
+            </div>
+
+            <!-- Result - converted Amount -->
+            <div class="slds-m-vertical_x-small">
+                <lightning-input type="text" label="Converted Amount" value={convertedAmount}  disabled></lightning-input>
+            </div>
+        </div>
+
+    </lightning-card>
+<!-- formatter="currency" step="0.001" -->
+</template>
